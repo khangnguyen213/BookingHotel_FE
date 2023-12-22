@@ -1,5 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
-import "./featuredProperties.css";
+import { Fragment, useEffect, useState } from 'react';
+import './featuredProperties.css';
+import Global from '../../global';
 
 const FeaturedProperties = () => {
   const [overviewData, setOverviewData] = useState();
@@ -7,8 +8,8 @@ const FeaturedProperties = () => {
     const detailUrl = `hotels/${hotel._id}`;
     const imageUrl =
       hotel.photos.length > 0
-        ? Object.values(hotel.photos[0]).join("")
-        : "https://cdn.dribbble.com/users/4354067/screenshots/13167254/media/5bdaf8ca6b78e6cef8d2ceafc17c2ddd.png?compress=1&resize=400x300&vertical=top";
+        ? Object.values(hotel.photos[0]).join('')
+        : 'https://cdn.dribbble.com/users/4354067/screenshots/13167254/media/5bdaf8ca6b78e6cef8d2ceafc17c2ddd.png?compress=1&resize=400x300&vertical=top';
     return (
       <div className="fpItem">
         <img src={imageUrl} alt="" className="fpImg" />
@@ -27,7 +28,7 @@ const FeaturedProperties = () => {
     );
   };
   useEffect(() => {
-    fetch("http://localhost:5000/overview")
+    fetch(`${Global.BASE_BACKEND_API}/overview`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);

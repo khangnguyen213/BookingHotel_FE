@@ -1,13 +1,14 @@
-import "./list.css";
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import './list.css';
+import Navbar from '../../components/navbar/Navbar';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { format } from "date-fns";
-import { DateRange } from "react-date-range";
-import SearchItem from "../../components/searchItem/SearchItem";
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { format } from 'date-fns';
+import { DateRange } from 'react-date-range';
+import SearchItem from '../../components/searchItem/SearchItem';
+import Global from '../../global';
 
 const List = () => {
   const location = useLocation();
@@ -21,10 +22,10 @@ const List = () => {
     if (destination) {
       const requestBody = { destination, date, openDate, options };
       console.log(requestBody);
-      console.log("FETCH POST SEARCH");
-      fetch("http://localhost:5000/search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      console.log('FETCH POST SEARCH');
+      fetch(`${Global.BASE_BACKEND_API}/search`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody),
       })
         .then((res) => res.json())
@@ -38,12 +39,12 @@ const List = () => {
   }, []);
 
   const searchClickHandler = () => {
-    console.log("FETCH POST SEARCH");
+    console.log('FETCH POST SEARCH');
     const requestBody = { destination, date, openDate, options };
     console.log(requestBody);
-    fetch("http://localhost:5000/search", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch(`${Global.BASE_BACKEND_API}/search`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),
     })
       .then((res) => res.json())
@@ -89,8 +90,8 @@ const List = () => {
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                'MM/dd/yyyy'
+              )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}

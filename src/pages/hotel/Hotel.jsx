@@ -1,18 +1,19 @@
-import "./hotel.css";
-import Navbar from "../../components/navbar/Navbar";
-import Header from "../../components/header/Header";
-import MailList from "../../components/mailList/MailList";
-import Footer from "../../components/footer/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './hotel.css';
+import Navbar from '../../components/navbar/Navbar';
+import Header from '../../components/header/Header';
+import MailList from '../../components/mailList/MailList';
+import Footer from '../../components/footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
   faCircleXmark,
   faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import BookingForm from "./BookingForm";
+} from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import BookingForm from './BookingForm';
+import Global from '../../global';
 
 const Hotel = () => {
   const query = useParams();
@@ -22,17 +23,17 @@ const Hotel = () => {
   const [isBooking, setIsBooking] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/hotels/${query.id}`)
+    fetch(`${Global.BASE_BACKEND_API}/hotels/${query.id}`)
       .then((res) => res.json())
       .then((data) => {
         setHotelData(data[0]);
         const photoList = [];
         data[0].photos.forEach((photo) => {
-          const p = { src: Object.values(photo).join("") };
+          const p = { src: Object.values(photo).join('') };
           photoList.push(p);
         });
         setPhotos(photoList);
-        if (queryParams.get("booking")) {
+        if (queryParams.get('booking')) {
           setIsBooking(true);
         }
       })
@@ -50,7 +51,7 @@ const Hotel = () => {
 
   const handleMove = (direction, limit) => {
     let newSlideNumber;
-    if (direction === "l") {
+    if (direction === 'l') {
       newSlideNumber = slideNumber === 0 ? limit : slideNumber - 1;
     } else {
       newSlideNumber = slideNumber === limit ? 0 : slideNumber + 1;
@@ -80,7 +81,7 @@ const Hotel = () => {
               <FontAwesomeIcon
                 icon={faCircleArrowLeft}
                 className="arrow"
-                onClick={() => handleMove("l", photos.length)}
+                onClick={() => handleMove('l', photos.length)}
               />
               <div className="sliderWrapper">
                 <img
@@ -92,7 +93,7 @@ const Hotel = () => {
               <FontAwesomeIcon
                 icon={faCircleArrowRight}
                 className="arrow"
-                onClick={() => handleMove("r", photos.length)}
+                onClick={() => handleMove('r', photos.length)}
               />
             </div>
           )}

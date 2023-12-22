@@ -1,7 +1,8 @@
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
-import styles from "./auth.module.css";
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
+import styles from './auth.module.css';
+import Global from '../../global';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -21,11 +22,11 @@ const Register = () => {
       isAdmin: false,
     };
     console.log(userDetail);
-    fetch("http://localhost:5000/register", {
-      method: "POST",
-      mode: "cors",
+    fetch(`${Global.BASE_BACKEND_API}/register`, {
+      method: 'POST',
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userDetail),
     })
@@ -41,7 +42,7 @@ const Register = () => {
         // setTimeout(() => {
         //   localStorage.removeItem("userId");
         // }, 10000);
-        navigate("/");
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);

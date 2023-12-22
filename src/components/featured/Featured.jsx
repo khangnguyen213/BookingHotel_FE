@@ -1,13 +1,14 @@
-import "./featured.css";
-import imgDN from "../../data/image/DN.jpg";
-import imgHN from "../../data/image/HN.jpg";
-import imgHCM from "../../data/image/HCM.jpg";
-import { Fragment, useEffect, useState } from "react";
+import './featured.css';
+import imgDN from '../../data/image/DN.jpg';
+import imgHN from '../../data/image/HN.jpg';
+import imgHCM from '../../data/image/HCM.jpg';
+import { Fragment, useEffect, useState } from 'react';
+import Global from '../../global';
 
 const Featured = () => {
   const [overviewData, setOverviewData] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/overview")
+    fetch(`${Global.BASE_BACKEND_API}/overview`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);

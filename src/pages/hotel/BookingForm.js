@@ -1,8 +1,9 @@
-import styles from "./BookingForm.module.css";
-import { DateRange } from "react-date-range";
-import { useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import styles from './BookingForm.module.css';
+import { DateRange } from 'react-date-range';
+import { useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import Global from '../../global';
 
 const BookingForm = () => {
   const navigate = useNavigate();
@@ -18,13 +19,13 @@ const BookingForm = () => {
   const [bookedRooms, setBookedRooms] = useState([]);
   const [date, setDate] = useState([
     {
-      startDate: queryParams.get("startDate")
-        ? new Date(queryParams.get("startDate"))
+      startDate: queryParams.get('startDate')
+        ? new Date(queryParams.get('startDate'))
         : new Date(),
-      endDate: queryParams.get("endDate")
-        ? new Date(queryParams.get("endDate"))
+      endDate: queryParams.get('endDate')
+        ? new Date(queryParams.get('endDate'))
         : new Date(),
-      key: "selection",
+      key: 'selection',
     },
   ]);
 
@@ -104,14 +105,14 @@ const BookingForm = () => {
       price: totalPay,
     };
     console.log(requestBody);
-    fetch("http://localhost:5000/add-transaction", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('http://localhost:5000/add-transaction', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),
     })
       .then((res) => {
         if (res.ok) {
-          navigate("/transaction");
+          navigate('/transaction');
         } else {
           throw new Error(res.statusText);
         }
@@ -125,12 +126,12 @@ const BookingForm = () => {
     let timeoutId;
     const triggerApiRequest = () => {
       //code to make request
-      console.log("FETCH POST ");
+      console.log('FETCH POST ');
       const requestBody = { date: date };
       console.log(requestBody);
-      fetch(`http://localhost:5000/check-hotel-available/${query.id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      fetch(`${Global.BASE_BACKEND_API}/check-hotel-available/${query.id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody),
       })
         .then((res) => res.json())

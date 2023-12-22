@@ -1,7 +1,8 @@
-import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
-import styles from "./auth.module.css";
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
+import styles from './auth.module.css';
+import Global from '../../global';
 
 const Login = () => {
   const [err, setErr] = useState();
@@ -14,12 +15,11 @@ const Login = () => {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
     };
-    console.log(userDetail);
-    fetch("http://localhost:5000/login", {
-      method: "POST",
-      mode: "cors",
+    fetch(`${Global.BASE_BACKEND_API}/login`, {
+      method: 'POST',
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userDetail),
     })
@@ -30,9 +30,8 @@ const Login = () => {
         return res.json();
       })
       .then((result) => {
-        console.log(result);
         localStorage.user = JSON.stringify(result);
-        navigate("/");
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
