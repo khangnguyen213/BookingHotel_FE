@@ -22,26 +22,11 @@ const Register = () => {
       isAdmin: false,
     };
     console.log(userDetail);
-    fetch(`${Global.BASE_BACKEND_API}/register`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userDetail),
-    })
+
+    axios
+      .post(`${Global.BASE_BACKEND_API}/register`, userDetail)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((result) => {
-        console.log(result);
-        localStorage.user = JSON.stringify(result);
-        // setTimeout(() => {
-        //   localStorage.removeItem("userId");
-        // }, 10000);
+        localStorage.user = JSON.stringify(res.data);
         navigate('/');
       })
       .catch((err) => {

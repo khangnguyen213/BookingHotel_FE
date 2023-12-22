@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import styles from './auth.module.css';
 import Global from '../../global';
+import axios from 'axios';
 
 const Login = () => {
   const [err, setErr] = useState();
@@ -15,22 +16,11 @@ const Login = () => {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
     };
-    fetch(`${Global.BASE_BACKEND_API}/login`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userDetail),
-    })
+
+    axios
+      .post(`${Global.BASE_BACKEND_API}/login`, userDetail)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((result) => {
-        localStorage.user = JSON.stringify(result);
+        localStorage.user = JSON.stringify(res.data);
         navigate('/');
       })
       .catch((err) => {
