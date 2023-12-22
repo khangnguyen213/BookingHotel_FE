@@ -8,7 +8,9 @@ import Global from '../../global';
 const Featured = () => {
   const [overviewData, setOverviewData] = useState();
   useEffect(() => {
-    fetch(`${Global.BASE_BACKEND_API}/overview`)
+    fetch(`${Global.BASE_BACKEND_API}/overview`, {
+      mode: 'cors',
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
