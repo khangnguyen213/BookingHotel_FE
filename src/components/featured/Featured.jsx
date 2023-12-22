@@ -4,21 +4,26 @@ import imgHN from '../../data/image/HN.jpg';
 import imgHCM from '../../data/image/HCM.jpg';
 import { Fragment, useEffect, useState } from 'react';
 import Global from '../../global';
+import axios from 'axios';
 
 const Featured = () => {
   const [overviewData, setOverviewData] = useState();
   useEffect(() => {
-    fetch(`${Global.BASE_BACKEND_API}/overview`, {
-      mode: 'cors',
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((result) => setOverviewData(result))
-      .catch((err) => console.log(err));
+    axios.get(`${Global.BASE_BACKEND_API}/overview`).then((res) => {
+      setOverviewData(res.data);
+    });
+
+    // fetch(`${Global.BASE_BACKEND_API}/overview`, {
+    //   mode: 'cors',
+    // })
+    //   .then((res) => {
+    //     if (!res.ok) {
+    //       throw new Error(res.statusText);
+    //     }
+    //     return res.json();
+    //   })
+    //   .then((result) => setOverviewData(result))
+    //   .catch((err) => console.log(err));
   }, [setOverviewData]);
   return (
     <Fragment>
