@@ -12,30 +12,30 @@ import Global from '../../global';
 
 const List = () => {
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
+  const [destination, setDestination] = useState(
+    location.state.destination ?? ''
+  );
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
   const [searchedItems, setSearchedItems] = useState();
 
   useEffect(() => {
-    if (destination) {
-      const requestBody = { destination, date, openDate, options };
-      console.log(requestBody);
-      console.log('FETCH POST SEARCH');
-      fetch(`${Global.BASE_BACKEND_API}/search`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestBody),
+    const requestBody = { destination, date, openDate, options };
+    console.log(requestBody);
+    console.log('FETCH POST SEARCH');
+    fetch(`${Global.BASE_BACKEND_API}/search`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchedItems(data);
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setSearchedItems(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const searchClickHandler = () => {
