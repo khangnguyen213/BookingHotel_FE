@@ -34,7 +34,23 @@ const Featured = () => {
           <div
             className="featuredItem"
             onClick={() =>
-              navigate('/hotels', { state: { destination: 'Da Nang' } })
+              navigate('/hotels', {
+                state: {
+                  destination: 'Da Nang',
+                  date: [
+                    {
+                      startDate: new Date(),
+                      endDate: new Date(),
+                      key: 'selection',
+                    },
+                  ],
+                  options: {
+                    adult: 1,
+                    children: 0,
+                    room: 1,
+                  },
+                },
+              })
             }
           >
             <img src={imgDN} alt="" className="featuredImg" />
