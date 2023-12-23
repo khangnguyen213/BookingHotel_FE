@@ -5,9 +5,11 @@ import imgHCM from '../../data/image/HCM.jpg';
 import { Fragment, useEffect, useState } from 'react';
 import Global from '../../global';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Featured = () => {
   const [overviewData, setOverviewData] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get(`${Global.BASE_BACKEND_API}/overview`).then((res) => {
       setOverviewData(res.data);
