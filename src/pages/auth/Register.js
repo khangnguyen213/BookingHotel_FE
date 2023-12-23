@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import styles from './auth.module.css';
 import Global from '../../global';
+import axios from 'axios';
 
 const Register = () => {
   const navigate = useNavigate();
