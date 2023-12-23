@@ -29,7 +29,12 @@ const Featured = () => {
     <Fragment>
       {overviewData && (
         <div className="featured">
-          <div className="featuredItem">
+          <div
+            className="featuredItem"
+            onClick={() =>
+              navigate('/hotels', { state: { destination: 'Da Nang' } })
+            }
+          >
             <img src={imgDN} alt="" className="featuredImg" />
             <div className="featuredTitles">
               <h1>Da Nang</h1>
@@ -37,14 +42,24 @@ const Featured = () => {
             </div>
           </div>
 
-          <div className="featuredItem">
+          <div
+            className="featuredItem"
+            onClick={() =>
+              navigate('/hotels', { state: { destination: 'Ho Chi Minh' } })
+            }
+          >
             <img src={imgHCM} alt="" className="featuredImg" />
             <div className="featuredTitles">
               <h1>Ho Chi Minh</h1>
               <h2>{overviewData.numberOfHotelInHCM} properties</h2>
             </div>
           </div>
-          <div className="featuredItem">
+          <div
+            className="featuredItem"
+            onClick={() =>
+              navigate('/hotels', { state: { destination: 'Ha Noi' } })
+            }
+          >
             <img src={imgHN} alt="" className="featuredImg" />
             <div className="featuredTitles">
               <h1>Ha Noi</h1>
