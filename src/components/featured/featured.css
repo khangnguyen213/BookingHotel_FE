@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.featuredItem:hover {
+  transform: scale(1, 1);
+}
+
 .featuredImg {
   width: 100%;
   height: 100%;
