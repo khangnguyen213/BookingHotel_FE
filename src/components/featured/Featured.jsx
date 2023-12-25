@@ -63,7 +63,23 @@ const Featured = () => {
           <div
             className="featuredItem"
             onClick={() =>
-              navigate('/hotels', { state: { destination: 'Ho Chi Minh' } })
+              navigate('/hotels', {
+                state: {
+                  destination: 'Ho Chi Minh',
+                  date: [
+                    {
+                      startDate: new Date(),
+                      endDate: new Date(),
+                      key: 'selection',
+                    },
+                  ],
+                  options: {
+                    adult: 1,
+                    children: 0,
+                    room: 1,
+                  },
+                },
+              })
             }
           >
             <img src={imgHCM} alt="" className="featuredImg" />
@@ -75,7 +91,23 @@ const Featured = () => {
           <div
             className="featuredItem"
             onClick={() =>
-              navigate('/hotels', { state: { destination: 'Ha Noi' } })
+              navigate('/hotels', {
+                state: {
+                  destination: 'Ha Noi',
+                  date: [
+                    {
+                      startDate: new Date(),
+                      endDate: new Date(),
+                      key: 'selection',
+                    },
+                  ],
+                  options: {
+                    adult: 1,
+                    children: 0,
+                    room: 1,
+                  },
+                },
+              })
             }
           >
             <img src={imgHN} alt="" className="featuredImg" />

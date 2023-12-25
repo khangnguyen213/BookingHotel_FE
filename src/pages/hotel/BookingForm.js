@@ -105,7 +105,7 @@ const BookingForm = () => {
       price: totalPay,
     };
     console.log(requestBody);
-    fetch('http://localhost:5000/add-transaction', {
+    fetch(`${Global.BASE_BACKEND_API}/add-transaction`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),

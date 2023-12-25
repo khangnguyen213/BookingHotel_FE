@@ -1,7 +1,8 @@
-import Navbar from "../../components/navbar/Navbar";
-import styles from "./transaction.module.css";
+import Navbar from '../../components/navbar/Navbar';
+import Global from '../../global';
+import styles from './transaction.module.css';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const Transaction = () => {
   const [transactionsArr, setTransactionsArr] = useState();
@@ -12,10 +13,10 @@ const Transaction = () => {
     let mm = today.getMonth() + 1;
     let dd = today.getDate();
 
-    if (dd < 10) dd = "0" + dd;
-    if (mm < 10) mm = "0" + mm;
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
 
-    const formattedToday = dd + "/" + mm + "/" + yyyy;
+    const formattedToday = dd + '/' + mm + '/' + yyyy;
     return formattedToday;
   };
 
@@ -24,13 +25,13 @@ const Transaction = () => {
     const startD = new Date(startDate);
     const endD = new Date(endDate);
     if (endD < today) {
-      return "Checkout";
+      return 'Checkout';
     }
     if (startD <= today && endD >= today) {
-      return "Checkin";
+      return 'Checkin';
     }
     if (startD > today) {
-      return "Booked";
+      return 'Booked';
     }
   };
 
@@ -40,10 +41,10 @@ const Transaction = () => {
         <div className={styles.tRow} key={transaction._id}>
           <span className={styles.colHotel}>{transaction.hotel.name}</span>
           <span className={styles.colRoom}>
-            {transaction.roomNumbers.join(",")}
+            {transaction.roomNumbers.join(',')}
           </span>
           <span className={styles.colDate}>
-            {formatDate(transaction.dateStart)} -{" "}
+            {formatDate(transaction.dateStart)} -{' '}
             {formatDate(transaction.dateEnd)}
           </span>
           <span className={styles.colPrice}>${transaction.price}</span>
@@ -60,9 +61,9 @@ const Transaction = () => {
     const requestBody = {
       userId: JSON.parse(localStorage.user)._id,
     };
-    fetch("http://localhost:5000/find-transaction-by-user", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch(`${Global.BASE_BACKEND_API}/find-transaction-by-user`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody),
     })
       .then((res) => {
