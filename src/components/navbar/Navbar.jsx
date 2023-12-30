@@ -1,6 +1,6 @@
-import "./navbar.css";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import './navbar.css';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,18 +12,18 @@ const Navbar = () => {
   }, [setUser]);
 
   const homeClickHandler = () => {
-    navigate("/");
+    navigate('/');
   };
   const loginClickHandler = () => {
-    navigate("/login");
+    navigate('/login');
   };
   const logoutClickHandler = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem('user');
     setUser();
-    navigate(0);
+    navigate('/');
   };
   const registerClickHandler = () => {
-    navigate("/register");
+    navigate('/register');
   };
   return (
     <div className="navbar">
@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="navItems">
             <button
               className="navButton"
-              onClick={() => navigate("/transaction")}
+              onClick={() => navigate('/transaction')}
             >
               {user.username}
             </button>
