@@ -1,20 +1,21 @@
 .header {
-  background-color: #002447; /* Darker background color */
-  color: #fff6f6; /* Text color */
+  background-color: #002447;
+  color: #fff6f6;
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 20px 0; /* Adjusted padding */
-  border-bottom: 3px solid #f875aa; /* Border added for separation */
+  padding: 20px 0;
+  border-bottom: 3px solid #f875aa;
 }
 
 .headerContainer {
   width: 100%;
   max-width: 1024px;
-  margin: 0 auto; /* Center align the content */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .headerTitle {
@@ -23,7 +24,6 @@
 }
 
 .headerDesc {
-  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -35,18 +35,18 @@
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease;
 }
 
 .headerBtn:hover {
-  background-color: #004080; /* Darker button color on hover */
+  background-color: #004080;
 }
 
 /* Animation */
 @keyframes slideInFromTop {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -55,9 +55,8 @@
 }
 
 /* Apply animation to specific elements */
-.mail,
 .headerTitle,
 .headerDesc,
 .headerBtn {
-  animation: slideInFromTop 0.6s ease; /* Apply animation */
+  animation: slideInFromTop 0.6s ease;
 }
