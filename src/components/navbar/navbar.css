@@ -1,6 +1,6 @@
 .navbar {
   height: 50px;
-  background-color: #003580;
+  background-color: #ffeecc; /* Main background color from the palette */
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@
 .navContainer {
   width: 100%;
   max-width: 1024px;
-  color: white;
+  color: #003580; /* Text color */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,10 +16,18 @@
 
 .logo {
   font-weight: 500;
+  color: #003580; /* Text color */
+  transition: color 0.3s ease;
 }
 
 .logo:hover {
   cursor: pointer;
+  color: #febbcc; /* Color on hover */
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
 }
 
 .navButton {
@@ -27,5 +35,13 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #003580;
+  color: #003580; /* Button text color */
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navButton:hover {
+  color: #ffcccc; /* Text color on hover */
+  background-color: #febbcc; /* Background color on hover */
+  border-radius: 5px; /* Rounded corners on hover */
 }

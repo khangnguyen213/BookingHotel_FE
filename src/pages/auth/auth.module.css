@@ -1,9 +1,11 @@
+/* auth.module.css */
+
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #ffeecc; /* Main background color */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,21 +25,30 @@
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffddcc; /* Input field border color */
+  background-color: #ffcccc; /* Input field background color */
+}
+
+.input {
+  /* Additional styles for input field */
+  width: calc(100% - 10px); /* Adjust width to fit within the container */
+  margin-left: 10px;
+  border: none;
+  background: none;
 }
 
 .submitBtn {
   padding: 15px;
   border-radius: 5px;
   border: none;
-  background-color: #007bff;
+  background-color: #febbcc; /* Submit button background color */
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .submitBtn:hover {
-  background-color: #0056b3;
+  background-color: #ffcccc; /* Hover state color */
 }
 
 .errorMsg {
