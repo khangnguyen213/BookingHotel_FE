@@ -1,6 +1,6 @@
 .navbar {
   height: 50px;
-  background-color: #eb89b5; /* Background color */
+  background-color: #aedefc; /* Background color */
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@
 .navContainer {
   width: 100%;
   max-width: 1024px;
-  color: #fff8d2; /* Text color */
+  color: #fff6f6; /* Text color */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,13 +16,13 @@
 
 .logo {
   font-weight: 500;
-  color: #fff8d2; /* Text color */
+  color: #fff6f6; /* Text color */
   transition: color 0.3s ease;
 }
 
 .logo:hover {
   cursor: pointer;
-  color: #fffbf3; /* Color on hover */
+  color: #ffdfdf; /* Color on hover */
 }
 
 .navItems {
@@ -35,13 +35,13 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #eb89b5; /* Button text color */
+  color: #f875aa; /* Button text color */
   background-color: transparent;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navButton:hover {
-  color: #fffbf3; /* Text color on hover */
-  background-color: #ffd7e9; /* Background color on hover */
+  color: #ffdfdf; /* Text color on hover */
+  background-color: #ffdfdf; /* Background color on hover */
   border-radius: 5px; /* Rounded corners on hover */
 }
