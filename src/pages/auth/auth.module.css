@@ -1,11 +1,9 @@
-/* auth.module.css */
-
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 8px;
-  background-color: #ffeecc; /* Main background color */
+  background-color: #fffbf3; /* Main background color */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -13,7 +11,7 @@
   text-align: center;
   margin-bottom: 30px;
   font-size: 24px;
-  color: #333333;
+  color: #eb89b5; /* Title text color */
 }
 
 .form {
@@ -25,13 +23,12 @@
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 5px;
-  border: 1px solid #ffddcc; /* Input field border color */
-  background-color: #ffcccc; /* Input field background color */
+  border: 1px solid #ffd7e9; /* Input field border color */
+  background-color: #fff8d2; /* Input field background color */
 }
 
 .input {
-  /* Additional styles for input field */
-  width: calc(100% - 10px); /* Adjust width to fit within the container */
+  width: calc(100% - 10px);
   margin-left: 10px;
   border: none;
   background: none;
@@ -41,18 +38,12 @@
   padding: 15px;
   border-radius: 5px;
   border: none;
-  background-color: #febbcc; /* Submit button background color */
-  color: white;
+  background-color: #eb89b5; /* Submit button background color */
+  color: #fff8d2; /* Submit button text color */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .submitBtn:hover {
-  background-color: #ffcccc; /* Hover state color */
-}
-
-.errorMsg {
-  color: red;
-  margin-top: 10px;
-  font-size: 14px;
+  background-color: #ffd7e9; /* Hover state color */
 }
