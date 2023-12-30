@@ -42,13 +42,13 @@ const Login = () => {
             ref={usernameRef}
           />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             required
             ref={passwordRef}
           />
-          {err && <div>{err.toString()}</div>}
-          <button onClick={loginHandler}>Login</button>
+          {err && <div className={styles.error}>{err.toString()}</div>}
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
