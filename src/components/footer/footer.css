@@ -1,23 +1,32 @@
-.footer{
+.footer {
   width: 100%;
-  width: 1024px;
+  max-width: 1024px; /* Corrected property name */
   font-size: 12px;
+  margin: 0 auto; /* Center align the content */
+  padding: 20px; /* Added padding for spacing */
+  color: #003580; /* Text color */
 }
 
-.fLists{
+.fLists {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  flex-wrap: wrap; /* Allow lists to wrap to the next line if needed */
 }
 
-.fList{
+.fList {
   list-style: none;
   padding: 0;
+  margin-right: 30px; /* Adjusted margin for list spacing */
 }
 
-.fListItem{
+.fListItem {
   margin-bottom: 10px;
-  color: #003580;
   cursor: pointer;
+  color: #003580; /* Text color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.fListItem:hover {
+  color: #f875aa; /* Color on hover */
 }
