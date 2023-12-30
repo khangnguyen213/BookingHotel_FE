@@ -32,7 +32,7 @@ const Login = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
-        <h1>LOGIN</h1>
+        <h1 className={styles.title}>LOGIN</h1>
 
         <form className={styles.form} onSubmit={loginHandler}>
           <input
@@ -40,15 +40,19 @@ const Login = () => {
             placeholder="Username"
             required
             ref={usernameRef}
+            className={styles.inputField}
           />
           <input
             type="password"
             placeholder="Password"
             required
             ref={passwordRef}
+            className={styles.inputField}
           />
-          {err && <div className={styles.error}>{err.toString()}</div>}
-          <button type="submit">Login</button>
+          {err && <div className={styles.errorMsg}>{err.toString()}</div>}
+          <button type="submit" className={styles.submitBtn}>
+            Login
+          </button>
         </form>
       </div>
     </div>

@@ -10,7 +10,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.title {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -20,14 +20,14 @@ h1 {
   flex-direction: column;
 }
 
-input {
+.inputField {
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-button {
+.submitBtn {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -37,11 +37,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.submitBtn:hover {
   background-color: #0056b3;
 }
 
-.error {
+.errorMsg {
   color: red;
   margin-top: 10px;
 }

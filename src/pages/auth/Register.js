@@ -38,35 +38,46 @@ const Register = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
-        <h1>REGISTER</h1>
+        <h1 className={styles.title}>REGISTER</h1>
         <form className={styles.form} onSubmit={registerHandler}>
           <input
             type="text"
             placeholder="Username"
             required
             ref={usernameRef}
+            className={styles.inputField}
           />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             required
             ref={passwordRef}
+            className={styles.inputField}
           />
           <input
             type="text"
             placeholder="Full name"
             required
             ref={fullnameRef}
+            className={styles.inputField}
           />
           <input
             type="text"
             placeholder="Phone number"
             required
             ref={phoneRef}
+            className={styles.inputField}
           />
-          <input type="text" placeholder="Email" required ref={emailRef} />
-
-          <button onClick={registerHandler}>Create new account</button>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            ref={emailRef}
+            className={styles.inputField}
+          />
+          <button type="submit" className={styles.submitBtn}>
+            Create new account
+          </button>
         </form>
       </div>
     </div>
