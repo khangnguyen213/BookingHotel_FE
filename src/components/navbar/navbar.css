@@ -1,6 +1,6 @@
 .navbar {
   height: 50px;
-  background-color: #aedefc; /* Background color */
+  background-color: #f875aa; /* Background color */
   display: flex;
   justify-content: center;
 }
@@ -35,13 +35,13 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #f875aa; /* Button text color */
+  color: #fff6f6; /* Button text color */
   background-color: transparent;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navButton:hover {
-  color: #ffdfdf; /* Text color on hover */
+  color: #f875aa; /* Text color on hover */
   background-color: #ffdfdf; /* Background color on hover */
   border-radius: 5px; /* Rounded corners on hover */
 }
