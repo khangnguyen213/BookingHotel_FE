@@ -1,11 +1,32 @@
 .header {
-  background-color: #ae167a; /* Darker background color */
-  color: #fff6f6; /* Text color */
+  /* background-color: #ae167a; Darker background color */
+  background-image: url('../../assest/trianglify-lowres.png'); /* Darker background color */
+  background-size: cover;
+
   display: flex;
   justify-content: center;
   position: relative;
   padding: 20px 0;
   animation: fadeIn 0.8s ease; /* Fade-in animation */
+}
+
+.header h1,
+.header p {
+  color: #fff6f6; /* Text color */
+  text-shadow: 0px 0px 5px #638253;
+}
+
+.header span {
+  color: #333;
+}
+
+.header svg {
+  color: #ae167a;
+  margin-right: 6px;
+}
+
+.date {
+  left: 25%;
 }
 
 .headerContainer {
